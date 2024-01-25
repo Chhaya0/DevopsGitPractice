@@ -60,7 +60,7 @@
                 <version>3.2.2</version>
                 <configuration>
                     <!-- Specify the path to your webapp directory -->
-                    <warSourceDirectory>src/main</warSourceDirectory>
+                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
                 </configuration>
             </plugin>
         </plugins>
