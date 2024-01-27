@@ -43,14 +43,29 @@
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.0</version>
+          <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
+          <configuration>
+                    <!-- Include test classes ending with "Test" -->
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+          </configuration>
         </plugin>
         <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.0.2</version>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.3.1</version>
+          <configuration>
+                <!-- Specify the name of the WAR file (optional) -->
+                <warName>calculator-app</warName>
+                <!-- Optionally configure other settings, e.g., web.xml, resources, etc. -->
+            </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
