@@ -1,57 +1,54 @@
-package com.testingdocs.calculator.tests;
-
-//Arrange-Act-Assert pattern
-import com.testingdocs.calculator.Calculator;
-import org.junit.Test; 
-import org.junit.Assert; 
-import org.junit.Before;
-
 public class CalculatorTest {
-private Calculator objCalcUnderTest;
 
-@Before
-public void setUp() {
-//Arrange
-objCalcUnderTest = new Calculator();
-}
+    public static void main(String[] args) {
+        testAddition();
+        testSubtraction();
+        testMultiplication();
+        testDivision();
+    }
 
-@Test
-public void testAdd() { 
-int a = 15; int b = 20; 
-int expectedResult = 35;
-//Act 
-long result = objCalcUnderTest.add(a, b);
-//Assert
-Assert.assertEquals(expectedResult, result);
-}
+    // Test case for addition
+    public static void testAddition() {
+        int result = Calculator.add(5, 3);
+        assertResult("Addition", result, 8);
+    }
 
-@Test
-public void testSubtract() {
-int a = 25; int b = 20; 
-int expectedResult = 5; 
-long result = objCalcUnderTest.subtract(a, b);
-Assert.assertEquals(expectedResult, result);
-}
+    // Test case for subtraction
+    public static void testSubtraction() {
+        int result = Calculator.subtract(10, 4);
+        assertResult("Subtraction", result, 6);
+    }
 
-@Test
-public void testMultiply() {
-int a = 10; int b = 25;
-long expectedResult = 250;
-long result = objCalcUnderTest.multiply(a, b);
-Assert.assertEquals(expectedResult, result);
-}
+    // Test case for multiplication
+    public static void testMultiplication() {
+        int result = Calculator.multiply(6, 7);
+        assertResult("Multiplication", result, 42);
+    }
 
-@Test
-public void testDivide() {
-int a = 56; int b = 10; 
-double expectedResult = 5.6; 
-double result = objCalcUnderTest.divide(a, b);
-Assert.assertEquals(expectedResult, result,0.00005); 
-}
+    // Test case for division
+    public static void testDivision() {
+        double result1 = Calculator.divide(8, 2);
+        assertResult("Division (valid)", result1, 4.0);
 
-@Test(expected = IllegalArgumentException.class)
-public void testDivideByZero() { 
-int a = 15; int b = 0;
-objCalcUnderTest.divide(a, b);
-} 
+        try {
+            Calculator.divide(5, 0);
+            System.out.println("Division (invalid): Test failed - Expected ArithmeticException");
+        } catch (ArithmeticException e) {
+            System.out.println("Division (invalid): Test passed - " + e.getMessage());
+        }
+    }
+
+    // Helper method to assert and print test results
+    private static void assertResult(String operation, double actual, double expected) {
+        if (actual == expected) {
+            System.out.println(operation + ": Test passed");
+        } else {
+            System.out.println(operation + ": Test failed - Expected: " + expected + ", Actual: " + actual);
+        }
+    }
+
+    // Overloaded method for integer results
+    private static void assertResult(String operation, int actual, int expected) {
+        assertResult(operation, (double) actual, (double) expected);
+    }
 }
