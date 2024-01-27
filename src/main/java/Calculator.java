@@ -21,18 +21,4 @@ public class Calculator {
         }
         return (double) a / b;
     }
-
-    public static void main(String[] args) {
-        // Test cases
-        System.out.println("Addition: " + add(5, 3));        // Expected: 8
-        System.out.println("Subtraction: " + subtract(10, 4)); // Expected: 6
-        System.out.println("Multiplication: " + multiply(6, 7)); // Expected: 42
-
-        try {
-            System.out.println("Division: " + divide(8, 2));   // Expected: 4.0
-            System.out.println("Division: " + divide(5, 0));   // This should throw an exception
-        } catch (ArithmeticException e) {
-            System.out.println(e.getMessage());
-        }
-    }
 }
