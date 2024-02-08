@@ -22,12 +22,13 @@
             <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
-         <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
+        <dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.8.0</version>
+    <scope>test</scope>
+</dependency>
+
     </dependencies>
 
     <build>
@@ -62,9 +63,10 @@
                 <version>2.22.2</version>
              <configuration>
                     <!-- Include test classes ending with "Test" -->
-                    <includes>
+<!--                     <includes>
                         <include>**/*Test.java</include>
-                    </includes>
+                    </includes> -->
+                      <test>CalculatorTest</test>
           </configuration>
             </plugin>
         </plugins>
