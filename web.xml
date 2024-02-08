@@ -4,13 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <servlet>
-        <servlet-name>CalculatorServlet</servlet-name>
-        <servlet-class>CalculatorServlet</servlet-class>
-    </servlet>
+    <!-- Remove the servlet and servlet-mapping entries from web.xml -->
 
-    <servlet-mapping>
-        <servlet-name>CalculatorServlet</servlet-name>
-        <url-pattern>/calculator</url-pattern>
-    </servlet-mapping>
 </web-app>
+
