@@ -1,7 +1,11 @@
-<!-- WebContent/WEB-INF/templates/address/list.jsp -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.Address" %>
+<%@ page import="java.util.Iterator" %>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Address Book</title>
 </head>
 <body>
@@ -12,13 +16,22 @@
             <th>Email</th>
             <th>Phone</th>
         </tr>
-        <c:forEach var="address" items="${addresses}">
-            <tr>
-                <td>${address.name}</td>
-                <td>${address.email}</td>
-                <td>${address.phone}</td>
-            </tr>
-        </c:forEach>
+        <% 
+            List<Address> addresses = (List<Address>) request.getAttribute("addresses");
+            if (addresses != null) {
+                Iterator<Address> iterator = addresses.iterator();
+                while (iterator.hasNext()) {
+                    Address address = iterator.next();
+        %>
+                    <tr>
+                        <td><%= address.getName() %></td>
+                        <td><%= address.getEmail() %></td>
+                        <td><%= address.getPhone() %></td>
+                    </tr>
+        <%
+                }
+            }
+        %>
     </table>
     <br>
     <form action="${pageContext.request.contextPath}/addresses" method="post">
