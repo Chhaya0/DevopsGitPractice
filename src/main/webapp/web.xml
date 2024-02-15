@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         id="WebApp_ID" version="4.0">
+
+    <display-name>AddressBook</display-name>
+
+    <!-- Servlet Mapping -->
+    <servlet>
+        <servlet-name>AddressBookServlet</servlet-name>
+        <servlet-class>com.example.AddressBookServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddressBookServlet</servlet-name>
+        <url-pattern>/addresses</url-pattern>
+    </servlet-mapping>
+
+    <!-- Welcome File -->
+    <welcome-file-list>
+        <welcome-file>addresses</welcome-file>
+    </welcome-file-list>
+
+</web-app>
