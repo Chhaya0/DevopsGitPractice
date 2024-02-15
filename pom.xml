@@ -6,7 +6,6 @@
 
     <groupId>com.example</groupId>
     <artifactId>addressbook</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <properties>
@@ -63,7 +62,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.3</version>
                 <configuration>
-                    <warSourceDirectory>WebContent</warSourceDirectory>
+                    <warSourceDirectory>webapp</warSourceDirectory>
                 </configuration>
             </plugin>
         </plugins>
